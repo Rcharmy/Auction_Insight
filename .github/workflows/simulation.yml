@@ -1,0 +1,51 @@
+name: Auction Simulation
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly Monday morning
+  workflow_dispatch:       # Allow manual trigger
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'sql/**'
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install package
+        run: pip install -e .
+
+      - name: Run tests
+        run: python -m unittest tests/test_core.py -v
+
+      - name: Run simulations
+        run: |
+          mkdir -p reports
+          auctioninsight --simulations 5000 --output-dir ./reports
+
+      - name: Upload simulation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulation-report
+          path: reports/*
+          retention-days: 30
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff check src/ tests/

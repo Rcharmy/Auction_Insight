@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auctioninsight"
+version = "1.0.0"
+description = "Monte Carlo auction simulation and KPI analytics engine for the Amazon Advertising ecosystem"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "AuctionInsight Team" },
+]
+keywords = ["adtech", "advertising", "auction", "monte-carlo", "simulation", "analytics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Simulation",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Ad Server",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://auctioninsight.io"
+Repository = "https://github.com/auctioninsight/auctioninsight-engine"
+Documentation = "https://github.com/auctioninsight/auctioninsight-engine#readme"
+
+[project.scripts]
+auctioninsight = "auctioninsight.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["auctioninsight*"]
