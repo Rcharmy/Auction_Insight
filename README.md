@@ -251,14 +251,9 @@ black src/ tests/
 
 ---
 
-## License
-
-[MIT](LICENSE) © 2026 AuctionInsight
-
----
 
 ## About AuctionInsight
 
 AuctionInsight provides high-level analytics and strategic intelligence for the Amazon Advertising ecosystem. We bridge the gap between engineering roadmaps and revenue performance for brands and agencies navigating Amazon's complex auction dynamics — including Amazon DSP, Sponsored Ads, Amazon Marketing Cloud (AMC), and Amazon Marketing Stream (AMS).
 
-[auctioninsight.io](https://auctioninsight.io)
+([https://auctioninsight.io](https://f28ba1bf8ae1b7e0a96a4f215306768d.ctonew.app/))
